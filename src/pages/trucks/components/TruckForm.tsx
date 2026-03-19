@@ -129,14 +129,14 @@ export function TruckForm({
   }
 
   return (
-    <Stack spacing={4}>
+    <Stack spacing={4} data-test="truck-form">
       {apiError ? (
         <Alert status="error" variant="left-accent">
           {apiError}
         </Alert>
       ) : null}
 
-      <Text fontWeight="semibold">{mode === 'create' ? 'Cadastro de Caminhão' : 'Atualização de Caminhão'}</Text>
+      <Text fontWeight="semibold" data-test="truck-form-title">{mode === 'create' ? 'Cadastro de Caminhão' : 'Atualização de Caminhão'}</Text>
 
       <Stack spacing={4} direction={{ base: 'column', md: 'row' }} align="flex-start">
         <FormControl isInvalid={!!fieldErrors.license_plate} isDisabled={mode === 'edit'}>
@@ -146,6 +146,7 @@ export function TruckForm({
             onChange={(e) => setValues((v) => ({ ...v, license_plate: formatPlateInput(e.target.value) }))}
             placeholder="ABC-1234 ou ABC1D23"
             maxLength={8}
+            data-test="truck-form-license-plate"
           />
           <FormErrorMessage>{fieldErrors.license_plate}</FormErrorMessage>
         </FormControl>
@@ -162,6 +163,7 @@ export function TruckForm({
           isLoading={loadingBrands}
           error={fieldErrors.brand}
           isRequired
+          dataTestId="truck-form-brand"
         />
       </Stack>
 
@@ -179,6 +181,7 @@ export function TruckForm({
           isDisabled={!values.brand}
           error={fieldErrors.model}
           isRequired
+          dataTestId="truck-form-model"
         />
 
         <SearchableSelect
@@ -193,14 +196,15 @@ export function TruckForm({
           isDisabled={!values.model}
           error={fieldErrors.manufacturing_year}
           isRequired
+          dataTestId="truck-form-year"
         />
       </Stack>
 
       <Stack direction={{ base: 'column', sm: 'row' }} justify="flex-end" spacing={3}>
-        <Button onClick={() => setValues(initialValues)} variant="outline" isDisabled={isSubmitting}>
+        <Button onClick={() => setValues(initialValues)} variant="outline" isDisabled={isSubmitting} data-test="truck-form-clear">
           Limpar
         </Button>
-        <Button onClick={submit} colorScheme="purple" isLoading={isSubmitting}>
+        <Button onClick={submit} colorScheme="purple" isLoading={isSubmitting} data-test="truck-form-submit">
           {mode === 'create' ? 'Cadastrar' : 'Atualizar'}
         </Button>
       </Stack>

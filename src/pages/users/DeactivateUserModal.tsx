@@ -28,13 +28,13 @@ export function DeactivateUserModal({ isOpen, onClose, user, onConfirm, isLoadin
   return (
     <AlertDialog isOpen={isOpen} onClose={onClose} leastDestructiveRef={cancelRef as unknown as React.RefObject<HTMLButtonElement>}>
       <AlertDialogOverlay>
-        <AlertDialogContent>
+        <AlertDialogContent data-test="deactivate-user-modal">
           <AlertDialogHeader>Confirmar {action}</AlertDialogHeader>
           <AlertDialogBody>
             Tem certeza que deseja {action} o usuário <strong>{user.username}</strong>?
           </AlertDialogBody>
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
+            <Button ref={cancelRef} onClick={onClose} data-test="deactivate-user-cancel">
               Cancelar
             </Button>
             <Button
@@ -42,6 +42,7 @@ export function DeactivateUserModal({ isOpen, onClose, user, onConfirm, isLoadin
               onClick={() => onConfirm()}
               ml={3}
               isLoading={isLoading}
+              data-test="deactivate-user-confirm"
             >
               {isActive ? 'Desativar' : 'Ativar'}
             </Button>

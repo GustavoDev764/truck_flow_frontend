@@ -25,7 +25,7 @@ export function TruckTable({
 }) {
   if (loading) {
     return (
-      <Table variant="simple">
+      <Table variant="simple" data-test="trucks-table">
         <Thead>
           <Tr>
             <Th>Placa</Th>
@@ -53,11 +53,11 @@ export function TruckTable({
   }
 
   if (!trucks.length) {
-    return <Text color="gray.500">Nenhum caminhão cadastrado.</Text>
+    return <Text color="gray.500" data-test="trucks-empty">Nenhum caminhão cadastrado.</Text>
   }
 
   return (
-    <Table variant="simple">
+    <Table variant="simple" data-test="trucks-table">
       <Thead>
         <Tr>
           <Th>Placa</Th>
@@ -77,10 +77,10 @@ export function TruckTable({
             <Td>{t.manufacturing_year}</Td>
             <Td>{formatBRL(t.fipe_price)}</Td>
             <Td textAlign="right">
-              <Button size="sm" variant="ghost" mr={2} onClick={() => onEdit(t)}>
+              <Button size="sm" variant="ghost" mr={2} onClick={() => onEdit(t)} data-test="truck-edit-btn">
                 Editar
               </Button>
-              <Button size="sm" variant="ghost" colorScheme="red" onClick={() => onDelete(t)}>
+              <Button size="sm" variant="ghost" colorScheme="red" onClick={() => onDelete(t)} data-test="truck-delete-btn">
                 Deletar
               </Button>
             </Td>

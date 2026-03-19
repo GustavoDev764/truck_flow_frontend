@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cypress - evidências (não versionar)
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/

@@ -18,7 +18,7 @@ type AuthState = {
 
 type AuthContextValue = AuthState & {
   login: (username: string, password: string) => Promise<void>
-  logout: () => void
+  logout: () => Promise<void>
   isManage: boolean
   refreshUser: () => Promise<void>
 }
@@ -60,8 +60,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
-  const logout = useCallback(() => {
-    auth_service.logout()
+  const logout = useCallback(async () => {
+    await auth_service.logout()
     setState((s) => ({ ...s, user: null }))
   }, [])
 

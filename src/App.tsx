@@ -25,8 +25,8 @@ function ProtectedApp() {
   const location = useLocation()
   const pathname = location.pathname
 
-  const handleLogout = () => {
-    logout()
+  const handleLogout = async () => {
+    await logout()
     navigate('/login', { replace: true })
   }
 

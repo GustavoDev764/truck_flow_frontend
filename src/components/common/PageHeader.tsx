@@ -11,11 +11,11 @@ export function PageHeader({
   actions?: ReactNode
 }) {
   return (
-    <Stack direction={{ base: 'column', md: 'row' }} align="flex-start" justify="space-between" spacing={4} mb={6}>
+    <Stack direction={{ base: 'column', md: 'row' }} align="flex-start" justify="space-between" spacing={4} mb={6} data-test="page-header">
       <Stack spacing={1}>
-        <Heading size="lg">{title}</Heading>
+        <Heading size="lg" data-test="page-title">{title}</Heading>
         {subtitle ? (
-          <Text color="gray.600" fontSize="sm">
+          <Text color="gray.600" fontSize="sm" data-test="page-subtitle">
             {subtitle}
           </Text>
         ) : null}

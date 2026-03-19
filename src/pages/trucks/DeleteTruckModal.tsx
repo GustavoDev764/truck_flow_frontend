@@ -25,17 +25,17 @@ export function DeleteTruckModal({ isOpen, onClose, truck, onConfirm, isLoading 
   return (
     <AlertDialog isOpen={isOpen} onClose={onClose} leastDestructiveRef={cancelRef as unknown as React.RefObject<HTMLButtonElement>}>
       <AlertDialogOverlay>
-        <AlertDialogContent>
+        <AlertDialogContent data-test="delete-truck-modal">
           <AlertDialogHeader>Confirmar exclusão</AlertDialogHeader>
           <AlertDialogBody>
             Tem certeza que deseja excluir o caminhão <strong>{truck.license_plate}</strong> ({truck.brand} {truck.model}
             )?
           </AlertDialogBody>
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
+            <Button ref={cancelRef} onClick={onClose} data-test="delete-truck-cancel">
               Cancelar
             </Button>
-            <Button colorScheme="red" onClick={() => onConfirm()} ml={3} isLoading={isLoading}>
+            <Button colorScheme="red" onClick={() => onConfirm()} ml={3} isLoading={isLoading} data-test="delete-truck-confirm">
               Deletar
             </Button>
           </AlertDialogFooter>

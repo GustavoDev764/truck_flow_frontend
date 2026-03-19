@@ -1,0 +1,8 @@
+node_modules
+dist
+cypress
+.git
+.env
+.env.*
+*.md
+.DS_Store

@@ -83,6 +83,7 @@ export function AdminLayout({
           <SidebarItem
             icon={<ChartIcon />}
             label="Dashboard"
+            dataTest="menu-dashboard"
             isActive={activeMenu === 'dashboard'}
             sidebarOpen={sidebarOpen}
             onClick={() => onNavigate('dashboard')}
@@ -90,6 +91,7 @@ export function AdminLayout({
           <SidebarItem
             icon={<TruckIcon />}
             label="Caminhões"
+            dataTest="menu-trucks"
             isActive={activeMenu === 'trucks'}
             sidebarOpen={sidebarOpen}
             onClick={() => onNavigate('trucks')}
@@ -98,6 +100,7 @@ export function AdminLayout({
             <SidebarItem
               icon={<UserIcon />}
               label="Usuários"
+              dataTest="menu-users"
               isActive={activeMenu === 'users'}
               sidebarOpen={sidebarOpen}
               onClick={() => onNavigate('users')}
@@ -114,6 +117,7 @@ export function AdminLayout({
               w="100%"
               _hover={{ bg: 'gray.700' }}
               onClick={onLogout}
+              data-test="menu-logout"
             >
               <Text fontSize="sm" display={sidebarOpen ? 'inline' : 'none'}>
                 Sair
@@ -133,12 +137,14 @@ export function AdminLayout({
 function SidebarItem({
   icon,
   label,
+  dataTest,
   isActive,
   onClick,
   sidebarOpen,
 }: {
   icon: ReactNode
   label: string
+  dataTest?: string
   isActive: boolean
   sidebarOpen: boolean
   onClick: () => void
@@ -155,6 +161,7 @@ function SidebarItem({
       borderRadius="md"
       px={sidebarOpen ? 3 : 2}
       gap={3}
+      data-test={dataTest}
     >
       {icon}
       <Text fontSize="sm" display={sidebarOpen ? 'inline' : 'none'}>

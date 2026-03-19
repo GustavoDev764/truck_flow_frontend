@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -10,34 +10,41 @@ import {
   Stack,
   Text,
   VStack,
-} from '@chakra-ui/react'
-import { useAuth } from '@app/app/context/AuthContext'
+} from "@chakra-ui/react";
+import { useAuth } from "@app/app/context/AuthContext";
 
 export function LoginPage() {
-  const { login, loading, error } = useAuth()
-  const navigate = useNavigate()
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const { login, loading, error } = useAuth();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await login(username.trim(), password)
-      navigate('/', { replace: true })
+      await login(username.trim(), password);
+      navigate("/", { replace: true });
     } catch {
       // error já vem no state
     }
-  }
+  };
 
   return (
-    <Box minH="100vh" display="flex" alignItems="center" justifyContent="center" bg="gray.50">
+    <Box
+      minH="100vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      bg="gray.50"
+      data-test="login-page"
+    >
       <VStack w="100%" maxW="400px" spacing={6} p={6}>
         <Text fontSize="2xl" fontWeight="bold" color="gray.800">
           TruckFlow
         </Text>
         <Text color="gray.600">Entre com seu usuário e senha</Text>
 
-        <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+        <form onSubmit={handleSubmit} style={{ width: "100%" }}>
           <Stack spacing={4}>
             <FormControl isInvalid={!!error} isRequired>
               <FormLabel>Usuário</FormLabel>
@@ -48,8 +55,13 @@ export function LoginPage() {
                 placeholder="ex: manage@truckflow.com"
                 autoComplete="username"
                 autoFocus
+                data-test="login-username"
               />
-              {error ? <FormErrorMessage>{error}</FormErrorMessage> : null}
+              {error ? (
+                <FormErrorMessage data-test="login-error">
+                  {error}
+                </FormErrorMessage>
+              ) : null}
             </FormControl>
 
             <FormControl isRequired>
@@ -60,15 +72,22 @@ export function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 autoComplete="current-password"
+                data-test="login-password"
               />
             </FormControl>
 
-            <Button type="submit" colorScheme="purple" w="100%" isLoading={loading}>
+            <Button
+              type="submit"
+              colorScheme="purple"
+              w="100%"
+              isLoading={loading}
+              data-test="login-submit"
+            >
               Entrar
             </Button>
           </Stack>
         </form>
       </VStack>
     </Box>
-  )
+  );
 }

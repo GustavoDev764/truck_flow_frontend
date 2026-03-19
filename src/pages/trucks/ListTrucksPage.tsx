@@ -47,7 +47,7 @@ export function ListTrucksPage({
         title="Caminhões"
         subtitle="Frota de caminhões"
         actions={
-          <Button colorScheme="purple" onClick={onCreate}>
+          <Button colorScheme="purple" onClick={onCreate} data-test="create-truck-btn">
             Cadastrar
           </Button>
         }
@@ -59,7 +59,7 @@ export function ListTrucksPage({
         </Alert>
       ) : null}
 
-      <Box bg="white" borderRadius="md" shadow="sm" overflow="hidden" mt={6}>
+      <Box bg="white" borderRadius="md" shadow="sm" overflow="hidden" mt={6} data-test="trucks-table-container">
         <Stack p={4}>
           <TruckTable trucks={trucks} loading={loading} onEdit={onEdit} onDelete={handleDeleteClick} />
         </Stack>

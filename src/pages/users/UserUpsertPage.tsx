@@ -101,7 +101,7 @@ export function UserUpsertPage() {
       <PageHeader
         title={isEdit ? 'Editar usuário' : 'Novo usuário'}
         actions={
-          <Button variant="outline" onClick={() => navigate('/users')}>
+          <Button variant="outline" onClick={() => navigate('/users')} data-test="user-form-back">
             Voltar
           </Button>
         }
@@ -133,6 +133,7 @@ export function UserUpsertPage() {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="ex: usuario@email.com"
                 isDisabled={isEdit}
+                data-test="user-form-username"
               />
             </FormControl>
 
@@ -143,12 +144,13 @@ export function UserUpsertPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@exemplo.com"
+                data-test="user-form-email"
               />
             </FormControl>
 
             <FormControl>
               <FormLabel>Nome</FormLabel>
-              <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Nome" />
+              <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Nome" data-test="user-form-first-name" />
             </FormControl>
 
             <FormControl>
@@ -164,6 +166,7 @@ export function UserUpsertPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Mínimo 8 caracteres"
+                  data-test="user-form-password"
                 />
               </FormControl>
             ) : null}
@@ -174,6 +177,7 @@ export function UserUpsertPage() {
                 value={group}
                 onChange={(e) => setGroup(e.target.value)}
                 placeholder="Selecione um grupo"
+                data-test="user-form-group"
               >
                 {GROUPS.map((g) => (
                   <option key={g} value={g}>
@@ -187,7 +191,7 @@ export function UserUpsertPage() {
               <Button variant="outline" onClick={() => navigate('/users')}>
                 Cancelar
               </Button>
-              <Button colorScheme="purple" type="submit" isLoading={loading}>
+              <Button colorScheme="purple" type="submit" isLoading={loading} data-test="user-form-submit">
                 Salvar
               </Button>
             </Stack>

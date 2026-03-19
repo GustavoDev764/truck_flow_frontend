@@ -50,7 +50,17 @@ export const auth_service = {
     return res.data
   },
 
-  logout(): void {
+  async logout(): Promise<void> {
+    const token = getStoredAccessToken()
+    if (token) {
+      try {
+        await httpClient.post('/api/auth/logout/', {}, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+      } catch {
+        // Ignora erro - sempre limpa tokens
+      }
+    }
     clearStoredTokens()
   },
 }

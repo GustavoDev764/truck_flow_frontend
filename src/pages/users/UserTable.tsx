@@ -28,7 +28,7 @@ export function UserTable({
 }) {
   if (loading) {
     return (
-      <Table variant="simple">
+      <Table variant="simple" data-test="users-table">
         <Thead>
           <Tr>
             <Th>Usuário</Th>
@@ -54,11 +54,11 @@ export function UserTable({
   }
 
   if (!users.length) {
-    return <Text color="gray.500">Nenhum usuário cadastrado.</Text>
+    return <Text color="gray.500" data-test="users-empty">Nenhum usuário cadastrado.</Text>
   }
 
   return (
-    <Table variant="simple">
+    <Table variant="simple" data-test="users-table">
       <Thead>
         <Tr>
           <Th>Usuário</Th>
@@ -86,7 +86,7 @@ export function UserTable({
               <Badge colorScheme={u.is_active ? 'green' : 'red'}>{u.is_active ? 'Ativo' : 'Inativo'}</Badge>
             </Td>
             <Td textAlign="right">
-              <Button size="sm" variant="ghost" mr={2} onClick={() => onEdit(u)}>
+              <Button size="sm" variant="ghost" mr={2} onClick={() => onEdit(u)} data-test="user-edit-btn">
                 Editar
               </Button>
               <Button size="sm" variant="ghost" mr={2} onClick={() => onChangePassword(u)}>
@@ -97,6 +97,7 @@ export function UserTable({
                 variant="ghost"
                 colorScheme={u.is_active ? 'red' : 'green'}
                 onClick={() => onDesativar(u)}
+                data-test="user-deactivate-btn"
               >
                 {u.is_active ? 'Desativar' : 'Ativar'}
               </Button>

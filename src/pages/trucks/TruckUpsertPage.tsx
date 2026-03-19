@@ -39,7 +39,7 @@ export function TruckUpsertPage({
       <PageHeader
         title={mode === 'create' ? 'Cadastrar Caminhão' : 'Atualizar Caminhão'}
         actions={
-          <Button variant="outline" onClick={onCancel} isDisabled={isSubmitting}>
+          <Button variant="outline" onClick={onCancel} isDisabled={isSubmitting} data-test="truck-form-back">
             Voltar
           </Button>
         }

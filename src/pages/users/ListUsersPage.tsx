@@ -80,13 +80,13 @@ export function ListUsersPage() {
         title="Usuários"
         subtitle="Gerencie os usuários do sistema"
         actions={
-          <Button colorScheme="purple" onClick={handleCreate}>
+          <Button colorScheme="purple" onClick={handleCreate} data-test="create-user-btn">
             Cadastrar
           </Button>
         }
       />
 
-      <Box bg="white" borderRadius="md" shadow="sm" overflow="hidden" mt={6}>
+      <Box bg="white" borderRadius="md" shadow="sm" overflow="hidden" mt={6} data-test="users-table-container">
         <Stack p={4}>
           <UserTable
             users={users}

@@ -1,0 +1,12 @@
+{
+  "trucks": [
+    {
+      "id": "mock-id-1",
+      "license_plate": "ABC1234",
+      "brand": "Volvo",
+      "model": "FH",
+      "manufacturing_year": 2023,
+      "fipe_price": "450000.00"
+    }
+  ]
+}

@@ -23,6 +23,7 @@ type SearchableSelectProps<T> = {
   isLoading?: boolean;
   error?: string;
   isRequired?: boolean;
+  dataTestId?: string;
 };
 
 export function SearchableSelect<T>({
@@ -38,6 +39,7 @@ export function SearchableSelect<T>({
   isLoading = false,
   error,
   isRequired,
+  dataTestId,
 }: SearchableSelectProps<T>) {
   const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState("");
@@ -94,6 +96,7 @@ export function SearchableSelect<T>({
           placeholder={placeholder}
           readOnly={!isOpen && !!selectedLabel}
           autoComplete="off"
+          data-test={dataTestId}
         />
         {isLoading ? (
           <Box
