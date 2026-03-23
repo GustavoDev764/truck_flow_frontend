@@ -349,3 +349,18 @@ O backend cria usuários de exemplo com `seed_groups --create-users`:
 | cliente@truckflow.com | truckflow123 | cliente |
 
 Use essas credenciais no `.env` para os testes E2E (`EMAIL_USER_CYPRESS`, `PASSWORD_USER_CYPRESS`).
+![Animação](https://github.com/user-attachments/assets/5ee8d02e-0a8c-4bf2-8ffd-7dd342035943)
+<img width="778" height="748" alt="Captura de tela 2026-03-23 114928" src="https://github.com/user-attachments/assets/52d8b828-0394-4293-80ea-dceba4383f80" />
+<img width="1919" height="1079" alt="Captura de tela 2026-03-23 115005" src="https://github.com/user-attachments/assets/98c2d7b9-3e58-46c3-a486-4d15c57644c2" />
+<img width="1919" height="1079" alt="Captura de tela 2026-03-23 115013" src="https://github.com/user-attachments/assets/2486801e-5748-46b4-b754-46f500fd9c12" />
+<img width="1919" height="1079" alt="Captura de tela 2026-03-23 115019" src="https://github.com/user-attachments/assets/a7a88f12-dd2a-442a-9da7-fb7e0ba2a5d4" />
+<img width="1919" height="1075" alt="Captura de tela 2026-03-23 115842" src="https://github.com/user-attachments/assets/d22a1155-e3cb-4c61-859a-19d0c593d0aa" />
+
+
+
+
+
+
+
+
+
